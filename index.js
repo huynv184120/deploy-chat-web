@@ -56,7 +56,8 @@ io.on("connect", (socket) => {
     socketController.sendMessage(io, socket);
     socketController.inviteMember(io, socket);
 })
+const port = process.env.PORT||5000;
 
-server.listen(5000);
+server.listen(port);
 
 
