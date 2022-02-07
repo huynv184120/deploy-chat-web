@@ -34,9 +34,9 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(__dirname + '/../chat-client/build')));
+app.use(express.static(path.join(__dirname + '/build')));
 app.get('*', (request, response) => {
-    response.sendFile(path.join(__dirname + '/../chat-client/build/index.html'));
+    response.sendFile(path.join(__dirname + '/build/index.html'));
 })
 
 db.connect(process.env.MONGODB_URL);
@@ -59,6 +59,9 @@ io.on("connect", (socket) => {
     socketController.editRoomInfo(io, socket);
 })
 
-server.listen(5000);
+const port = process.env.PORT||5000
+
+
+server.listen(port);
 
 
