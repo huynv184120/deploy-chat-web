@@ -8,6 +8,7 @@ const cookieParser = require("cookie-parser");
 const dotenv = require("dotenv");
 const socketController = require("./src/socket/handle_event");
 const path = require("path");
+const socketEvent = require("./src/socket/events");
 dotenv.config();
 
 const configCors = {
@@ -33,9 +34,9 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(path.join(__dirname + '/build')));
+app.use(express.static(path.join(__dirname + '/../chat-client/build')));
 app.get('*', (request, response) => {
-    response.sendFile(path.join(__dirname + '/build/index.html'));
+    response.sendFile(path.join(__dirname + '/../chat-client/build/index.html'));
 })
 
 db.connect(process.env.MONGODB_URL);
@@ -55,9 +56,9 @@ io.on("connect", (socket) => {
     socketController.createRoom(io, socket);
     socketController.sendMessage(io, socket);
     socketController.inviteMember(io, socket);
+    socketController.editRoomInfo(io, socket);
 })
-const port = process.env.PORT||5000;
 
-server.listen(port);
+server.listen(5000);
 
 
