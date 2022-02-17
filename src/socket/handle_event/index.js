@@ -4,4 +4,5 @@ const createRoom = require("./createRoom");
 const sendMessage = require("./sendMessage")
 const inviteMember = require("./inviteMember");
 const editRoomInfo = require("./editRoomInfo");
-module.exports = {online, offline, createRoom, sendMessage, inviteMember, editRoomInfo};
+const messageChange = require("./messageChange");
+module.exports = {online, offline, createRoom, sendMessage, inviteMember, editRoomInfo, messageChange};

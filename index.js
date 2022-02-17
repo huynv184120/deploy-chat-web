@@ -57,11 +57,11 @@ io.on("connect", (socket) => {
     socketController.sendMessage(io, socket);
     socketController.inviteMember(io, socket);
     socketController.editRoomInfo(io, socket);
+    socketController.messageChange(io, socket);
 })
 
 const port = process.env.PORT||5000
 
 
 server.listen(port);
-
 
