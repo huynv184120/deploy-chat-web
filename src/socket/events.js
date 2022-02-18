@@ -6,6 +6,7 @@ const socketEvent = {
     joinRoom:"joinRoom",
     sendMessage:"sendMessage",
     addMessage:"addMessage",
+    deleteMessage:"deleteMessage",
     reactMessage:"reactMessage",
     updateMemberInfo:"updateMemberInfo",
     inviteMember:"inviteMember",

@@ -19,7 +19,11 @@ const Message = new Schema({
     },
     to:{
         type:String,
-    }
+    },
+    deleted:{
+        default:false,
+        type:Boolean
+    },
 },{timestamps:true});
 
 const MessageModel = mongoose.model("Message",Message);
